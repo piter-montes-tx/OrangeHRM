@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AutomationOrange.Pages.Login" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="url" Type="System.String" Scope="Application">
+      <Value Profile="(Default)"> http://opensource.demo.orangehrmlive.com/index.php/auth/login</Value>
+    </Setting>
+    <Setting Name="username" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Admin</Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

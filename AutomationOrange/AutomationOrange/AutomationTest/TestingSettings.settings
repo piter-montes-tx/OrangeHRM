@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AutomationOrange.AutomationTest" GeneratedClassName="TestingSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DriverPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\WebDrivers\</Value>
+    </Setting>
+    <Setting Name="Driver" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Firefox</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
