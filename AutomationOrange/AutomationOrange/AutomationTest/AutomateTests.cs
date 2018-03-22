@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using System.Windows.Forms;
@@ -33,7 +34,7 @@ namespace AutomationOrange.AutomationTest
         [TestMethod]
         public void EmployeeCreated()
         {
-            const string ran = "002";
+            const string ran = "003";
             var fName = "Purple"+ran;
             var mName = "Hrm" + ran;
             var lName = "Automation" + ran;
@@ -63,8 +64,6 @@ namespace AutomationOrange.AutomationTest
             bool existEmployee = employeeResult.ContainEmployee(fName);
             Assert.IsTrue(existEmployee,"NEHHH Error");
 
-            Console.WriteLine("ok");
-
         }
 
         #region Additional test attributes
@@ -75,9 +74,25 @@ namespace AutomationOrange.AutomationTest
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            switch (TestingSettings.Default.Driver)
+            {
+                case "Chrome":
+                    PropertiesCollection.Driver = new ChromeDriver(TestingSettings.Default.DriverPath);
+                    break;
+                case "Firefox":
+                    PropertiesCollection.Driver = new FirefoxDriver(TestingSettings.Default.DriverPath);
+                    break;
+                case "Iexplorer":
+                    PropertiesCollection.Driver = new InternetExplorerDriver(TestingSettings.Default.DriverPath);
+                    break;
+                default:
+                    Console.WriteLine("need select a Driver to run");
+                    break;
+
+            }
             //PropertiesCollection.Driver = new InternetExplorerDriver(TestingSettings.Default.DriverPath);
             //PropertiesCollection.Driver = new ChromeDriver(@"c:\WebDrivers\");
-            PropertiesCollection.Driver = new FirefoxDriver(@"c:\WebDrivers\");
+            //PropertiesCollection.Driver = new FirefoxDriver(@"c:\WebDrivers\");
 
             Launch.LaunchUrl(loginSetting.Default.url);
         }
