@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutomationOrange.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -11,7 +7,6 @@ namespace AutomationOrange.Pages
 {
     public class DashBoardPage
     {
-
         public DashBoardPage()
         {
             PageFactory.InitElements(PropertiesCollection.Driver, this);
@@ -20,7 +15,6 @@ namespace AutomationOrange.Pages
         [FindsBy(How = How.Id, Using = "menu_pim_viewPimModule")]
         public IWebElement TabPim { get; set; }
         #endregion
-
         public ViewEmployeeListPage ClickOnTabPim()
         {
             Console.WriteLine("Click on Tab PIM");
@@ -29,12 +23,10 @@ namespace AutomationOrange.Pages
             return new ViewEmployeeListPage();
             
         }
-
     }
 
     public class ViewEmployeeListPage
     {
-
         public ViewEmployeeListPage()
         {
             PageFactory.InitElements(PropertiesCollection.Driver, this);
@@ -62,9 +54,6 @@ namespace AutomationOrange.Pages
             TabEmployeeList.Click();
             return new EmployeeInformationPage();
         }
-
-
-
     }
 
 
@@ -81,9 +70,6 @@ namespace AutomationOrange.Pages
         [FindsBy(How = How.Id, Using = "searchBtn")]
         public IWebElement ButtonSearch { get; set; }
         #endregion
-
-        //9. In Employee Name write: "Purple Hrm Automation"
-        //10. Verify that employee has been created and it is displayed in the table.            
         public EmployeeResultInformationPage SearchForEmployeeName(string employeeName)
         {
             Console.WriteLine("Find for the form to search");
@@ -107,7 +93,6 @@ namespace AutomationOrange.Pages
         //[FindsBy(How = How.XPath, Using = "//input[@type='checkbox']")]
         //public IWebElement TableRowFind { get; set; }
         #endregion
-
         public bool ContainEmployee(string findValue)
         {
             Console.WriteLine("Find for: "+findValue);
@@ -134,7 +119,6 @@ namespace AutomationOrange.Pages
         public IWebElement ButtonSave { get; set; }
 
         #endregion
-
         public PersonalDetailsPage FillEmployee(string firstName, string middleName, string lastName)
         {
             Console.WriteLine("Fill the following fields");
@@ -147,7 +131,6 @@ namespace AutomationOrange.Pages
             LastName.SendKeys(lastName);
             Console.WriteLine("Click on Save button");
             ButtonSave.Click();
-            //Assert.IsTrue(SpanMessage.Text.Contains("Csrf token validation failed"), "Validation Failed ");
             return new PersonalDetailsPage();
         }
     }

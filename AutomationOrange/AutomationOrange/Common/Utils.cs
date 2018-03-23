@@ -2,12 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 namespace AutomationOrange.Common
@@ -20,7 +16,6 @@ namespace AutomationOrange.Common
         {
             var timeout = new TimeSpan(0, 0, 30);
             var wait = new WebDriverWait(driver, timeout);
-
             var javascript = driver as IJavaScriptExecutor;
             if (javascript == null)
                 throw new ArgumentException("driver", "Driver must support javascript execution");
@@ -98,7 +93,6 @@ namespace AutomationOrange.Common
             try
             {
                 IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(by));
-                //ToDo add assert on this method
                 return element;
             }
             catch

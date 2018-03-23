@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutomationOrange.Common;
-using Microsoft.VisualStudio.TestTools.UITest.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace AutomationOrange.Pages.Login
 {
-    public class LoggingPage
+    public class LogingPage
     {
-        public LoggingPage()
+        public LogingPage()
         {
             PageFactory.InitElements(PropertiesCollection.Driver, this);
         }
@@ -27,7 +21,7 @@ namespace AutomationOrange.Pages.Login
         [FindsBy(How = How.Id, Using = "spanMessage")]
         public IWebElement SpanMessage { get; set; }
 
-        public DashBoardPage Logging(string username, string pass)
+        public DashBoardPage Loging(string username, string pass)
         {
             Console.WriteLine("Find for the form to login");
             Utils.FindElementVisible(By.Id("txtUsername"));
@@ -35,9 +29,8 @@ namespace AutomationOrange.Pages.Login
             UserName.SendKeys(username);
             UserPassword.Clear();
             UserPassword.SendKeys(pass);
-            Console.WriteLine("Click on Logging button");
+            Console.WriteLine("Click on Loging button");
             ButtonLogin.Click();
-            //Assert.IsTrue(SpanMessage.Text.Contains("Csrf token validation failed"), "Validation Failed ");
             return new DashBoardPage();
         }
 

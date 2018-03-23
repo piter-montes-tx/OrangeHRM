@@ -1,46 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
 using AutomationOrange.Common;
-using AutomationOrange.Pages;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using OpenQA.Selenium;
 using AutomationOrange.Pages.Login;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 
 namespace AutomationOrange.AutomationTest
 {
-    /// <summary>
-    /// Summary description for CodedUITest1
-    /// </summary>
+
     [CodedUITest]
     public class AutomateTests
     {
         private IWebDriver driver;
-        public AutomateTests()
+        public AutomateTests(IWebDriver driver)
         {
+            this.driver = driver;
         }
 
         [TestMethod]
         public void EmployeeCreated()
         {
             const string ran = "003";
-            var fName = "Purple"+ran;
-            var mName = "Hrm" + ran;
-            var lName = "Automation" + ran;
+            const string fName = "Purple"+ran;
+            const string mName = "Hrm" + ran;
+            const string lName = "Automation" + ran;
 
             //1. Go to http://opensource.demo.orangehrmlive.com/index.php/auth/login
-
             //2. Fill the login and password fields with "Admin" "admin"
             //3.Click on login button
             //4.Click on PIM tab
@@ -50,8 +39,8 @@ namespace AutomationOrange.AutomationTest
             //            - Middle Name: Hrm
             //            - Last Name: Automation
             //7.Click on Save button
-            var logging = new LoggingPage();
-            var dashBoard = logging.Logging(loginSetting.Default.username, loginSetting.Default.password);
+            var loging = new LogingPage();
+            var dashBoard = loging.Loging(loginSetting.Default.username, loginSetting.Default.password);
             var viewEmployee =    dashBoard.ClickOnTabPim();
                 viewEmployee.ClickOnTabAddEmployee()
                 .FillEmployee(fName,mName,lName);
@@ -88,11 +77,7 @@ namespace AutomationOrange.AutomationTest
                 default:
                     Console.WriteLine("need select a Driver to run");
                     break;
-
             }
-            //PropertiesCollection.Driver = new InternetExplorerDriver(TestingSettings.Default.DriverPath);
-            //PropertiesCollection.Driver = new ChromeDriver(@"c:\WebDrivers\");
-            //PropertiesCollection.Driver = new FirefoxDriver(@"c:\WebDrivers\");
 
             Launch.LaunchUrl(loginSetting.Default.url);
         }
